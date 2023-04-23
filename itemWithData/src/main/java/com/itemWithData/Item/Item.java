@@ -1,6 +1,11 @@
 package com.itemWithData.Item;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Item {
+	@Id
 	private String itemID;
 	private String itemName;
 	private String itemStatus;
