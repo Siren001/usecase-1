@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 public class ItemController {
 	@Autowired
 	private ItemService itemService;
+	
+	
 	@RequestMapping("/items")
 	public List<Item> returnAllItems() {
 		return itemService.displayAllItems();
