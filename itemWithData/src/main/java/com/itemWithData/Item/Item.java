@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 @Table
 public class Item {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+//	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String itemID;
 	private String itemName;
 	private String itemStatus;

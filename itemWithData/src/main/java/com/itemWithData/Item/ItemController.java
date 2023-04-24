@@ -2,6 +2,7 @@ package com.itemWithData.Item;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 public class ItemController {
 	@Autowired
 	private ItemService itemService;
-	
+
 	
 	@RequestMapping("/items")
 	public List<Item> returnAllItems() {
@@ -18,12 +19,13 @@ public class ItemController {
 		
 	}
 	@RequestMapping("/items/{itemID}")
-	public Item getItemByID(@PathVariable String itemID) {
+	public Optional<Item> getItemByID(@PathVariable String itemID) {
 		return itemService.getItem(itemID);
 	}
-	@RequestMapping(method = RequestMethod.POST,value="/items")
+	@PostMapping("/items")
 	public void addItem(@RequestBody Item i) {
 		itemService.newTopic(i);
+
 	}
 	@RequestMapping(method = RequestMethod.PUT,value="/items/{itemID}")
 	public void updateItem(@RequestBody Item i,@PathVariable String itemID) {
