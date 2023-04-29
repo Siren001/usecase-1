@@ -16,7 +16,7 @@ public class CategoryController {
 		
 	}
 	@RequestMapping("/categories/{categoryID}")
-	public Optional<Category> getCategoryByID(@PathVariable String categoryID) {
+	public Optional<Category> getCategoryByID(@PathVariable Integer categoryID) {
 		return categoryService.getCategory(categoryID);
 	}
 	@PostMapping("/categories")
@@ -25,11 +25,11 @@ public class CategoryController {
 
 	}
 	@RequestMapping(method = RequestMethod.PUT,value="/categories/{categoryID}")
-	public void updateItem(@RequestBody Category i,@PathVariable String categoryID) {
+	public void updateItem(@RequestBody Category i,@PathVariable Integer categoryID) {
 		categoryService.updateCategory(i,categoryID);
 	}
 	@RequestMapping(method = RequestMethod.DELETE,value="/categories/{categoryID}")
-	public void deleteItem(@RequestBody Category i,@PathVariable String categoryID) {
+	public void deleteItem(@RequestBody Category i,@PathVariable Integer categoryID) {
 		categoryService.deleteCategoryById(i,categoryID);
 	}
 }

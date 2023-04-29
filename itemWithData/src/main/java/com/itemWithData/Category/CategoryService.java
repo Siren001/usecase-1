@@ -16,19 +16,29 @@ public class CategoryService  {
 		categoryRepository.findAll().forEach(temp::add);
 		return temp;
 	}
-	public Optional<Category> getCategory(String categoryID) {
+	public Optional<Category> getCategory(Integer categoryID) {
 		Optional<Category> temp = categoryRepository.findById(categoryID);
 		return temp;
 	}
 	public void newcategory(Category c) {
 		categoryRepository.save(c);
 	}
-	public void updateCategory(Category c, String categoryID) {
-		categoryRepository.save(c);
+	public void updateCategory(Category c, Integer categoryID) {
+		Optional<Category> temp =  categoryRepository.findById(categoryID);
+		if (temp.isPresent()) {
+			categoryRepository.save(c);
+		}
+		
+		else return;
+		
 		
 	}
-	public void deleteCategoryById(Category c, String categoryID) {
-		categoryRepository.deleteById(categoryID);
+	public void deleteCategoryById(Category c, Integer categoryID) {
+		Optional<Category> temp =  categoryRepository.findById(categoryID);
+		if (temp.isPresent()) {
+			categoryRepository.deleteById(categoryID);
+		}
+		else return ;
 		
 	}
 	

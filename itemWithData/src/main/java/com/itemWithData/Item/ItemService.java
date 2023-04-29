@@ -17,13 +17,6 @@ public class ItemService  {
 	@Autowired
 	ItemRepository itemrepo;
 
-//	 List<Item> items =  new ArrayList<>(Arrays.asList(
-//			new Item("01","arya","Active"),
-//			new Item("02","Soap","Online"),
-//			new Item("03","Battery","Inactive")
-//			
-//			
-//			));
 	public List<Item> displayAllItems(){
 //		return items;
 		List<Item> temp = new ArrayList<>();
