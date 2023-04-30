@@ -6,32 +6,26 @@ import com.itemWithData.Item.Item;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name = "category")
 public class Category {
 	@Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer categoryID;
 	private String categoryName;
 	private String categoryDescription;
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "itemID")
-	private List<Item> Item;
-
-	public Category() {
-		// TODO Auto-generated constructor stub
-	}
-public Category(Integer categoryID, String categoryName, String categoryDescription, List<com.itemWithData.Item.Item> item) {
+	@OneToMany(mappedBy = "category")
+	private List<Item> items;
+public Category() {
+	// TODO Auto-generated constructor stub
+}
+public Category(Integer categoryID, String categoryName, String categoryDescription, List<Item> items) {
 	super();
 	this.categoryID = categoryID;
 	this.categoryName = categoryName;
 	this.categoryDescription = categoryDescription;
-	Item = item;
+	this.items = items;
 }
 public Integer getCategoryID() {
 	return categoryID;
@@ -51,16 +45,12 @@ public String getCategoryDescription() {
 public void setCategoryDescription(String categoryDescription) {
 	this.categoryDescription = categoryDescription;
 }
-public List<com.itemWithData.Item.Item> getItem() {
-	return Item;
+public List<Item> getItems() {
+	return items;
 }
-public void setItem(List<com.itemWithData.Item.Item> item) {
-	Item = item;
+public void setItems(List<Item> items) {
+	this.items = items;
 }
-@Override
-public String toString() {
-	return "Category [categoryID=" + categoryID + ", categoryName=" + categoryName + ", categoryDescription="
-			+ categoryDescription + ", Item=" + Item + "]";
-}
-	
+
+
 }

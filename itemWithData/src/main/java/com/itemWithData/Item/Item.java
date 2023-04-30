@@ -1,5 +1,4 @@
 package com.itemWithData.Item;
-
 import com.itemWithData.Category.Category;
 
 import jakarta.persistence.CascadeType;
@@ -12,19 +11,23 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Table(name = "item")
+@Table
+
+
 public class Item {
 	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "itemID")
 	private String itemID;
 	private String itemName;
 	private String itemStatus;
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "categoryID")
-	Category category;
+	private Category category;
 	public Item() {
 		// TODO Auto-generated constructor stub
 	}
@@ -58,11 +61,6 @@ public class Item {
 	}
 	public void setCategory(Category category) {
 		this.category = category;
-	}
-	@Override
-	public String toString() {
-		return "Item [itemID=" + itemID + ", itemName=" + itemName + ", itemStatus=" + itemStatus + ", category="
-				+ category + "]";
 	}
 	
 }
