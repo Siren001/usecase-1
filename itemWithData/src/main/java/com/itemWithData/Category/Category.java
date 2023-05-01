@@ -15,7 +15,7 @@ public class Category {
 	private Integer categoryID;
 	private String categoryName;
 	private String categoryDescription;
-	@OneToMany(mappedBy = "category")
+	@OneToMany(mappedBy = "category",cascade = CascadeType.ALL)
 	private List<Item> items;
 public Category() {
 	// TODO Auto-generated constructor stub
@@ -50,6 +50,11 @@ public List<Item> getItems() {
 }
 public void setItems(List<Item> items) {
 	this.items = items;
+}
+@Override
+public String toString() {
+	return "Category [categoryID=" + categoryID + ", categoryName=" + categoryName + ", categoryDescription="
+			+ categoryDescription + ", items=" + items + "]";
 }
 
 

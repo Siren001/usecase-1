@@ -22,7 +22,7 @@ import lombok.Setter;
 
 public class Item {
 	@Id
-	@Column(name = "itemID")
+//	@Column(name = "itemID")
 	private String itemID;
 	private String itemName;
 	private String itemStatus;
@@ -61,6 +61,11 @@ public class Item {
 	}
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+	@Override
+	public String toString() {
+		return "Item [itemID=" + itemID + ", itemName=" + itemName + ", itemStatus=" + itemStatus + ", category="
+				+ category + "]";
 	}
 	
 }

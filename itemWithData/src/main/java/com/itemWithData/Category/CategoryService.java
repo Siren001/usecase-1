@@ -5,16 +5,22 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.itemWithData.Item.Item;
+import com.itemWithData.Item.ItemRepository;
+
 
 
 @Service
 public class CategoryService  {
 	@Autowired
 	CategoryRepository categoryRepository;
+	@Autowired
+	ItemRepository itemRepository;
 	public List<Category> displayAllCategories(){
-		List<Category> temp = new ArrayList<>();
+	List<Category> temp = new ArrayList<>();
 		categoryRepository.findAll().forEach(temp::add);
 		return temp;
+		
 	}
 	public Optional<Category> getCategory(Integer categoryID) {
 		Optional<Category> temp = categoryRepository.findById(categoryID);
