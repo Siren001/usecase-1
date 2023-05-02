@@ -1,12 +1,14 @@
-package com.itemWithData.Category;
+package com.itemWithData.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.itemWithData.Item.Item;
-import com.itemWithData.Item.ItemRepository;
+import com.itemWithData.repository.CategoryRepository;
+import com.itemWithData.entities.Category;
+import com.itemWithData.entities.Item;
+import com.itemWithData.repository.ItemRepository;
 
 
 
